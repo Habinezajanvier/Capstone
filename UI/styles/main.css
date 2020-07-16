@@ -130,7 +130,75 @@ footer {
   padding: 15px 25px;
   background: rgba(226, 235, 235, 0.92);
 }
+h5 {
+  font-size: 16px;
+  line-height: 19px;
+}
+footer section {
+  width: 30%;
+}
 .media,
 .contacts {
   margin-top: 20px;
+}
+.social_media {
+  width: 100%;
+}
+.media_icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.media_icons i {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: #54a2a2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.suscribe {
+  width: 100%;
+  margin-top: 20px;
+}
+.suscribe input {
+  width: 100%;
+  background: rgba(137, 199, 199, 0.67);
+  border-radius: 5px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  padding: 5px 8px;
+}
+.contacts div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+.contacts i {
+  color: #54a2a2;
+  margin-right: 10px;
+  font-size: 20px;
+}
+.contact_me * {
+  width: 100%;
+  margin-top: 12px;
+}
+.contact_me input,
+.contact_me textarea {
+  background-color: #fdf9f9;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+[type='submit'] {
+  background-color: rgba(140, 180, 180, 0.67);
+  transition: 0.4s;
+}
+
+[type='submit']:hover {
+  background-color: #54a2a2;
+  color: white;
 }
