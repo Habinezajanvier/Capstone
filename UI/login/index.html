@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/c1b1e39708.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/outils.css" />
+    <link rel="stylesheet" href="../styles/login.css" />
+    <title>JanvierHabineza</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><span>Janvier </span>Habineza</div>
+      <nav>
+        <div class="main_nav">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">About me</a></li>
+            <li><a href="#">Stories</a></li>
+          </ul>
+        </div>
+        <div class="credential">
+          <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="../signup/">Signup</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="main-wrapper">
+        <h1>Login as Admin</h1>
+        <div class="content-wrapper">
+          <form autocomplete="off" id="login_frm">
+            <div class="email">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your email"
+              />
+            </div>
+            <div class="password">
+              <i class="fas fa-key"></i>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password"
+              />
+            </div>
+            <button type="submit">Login</button>
+            <div class="frgt_password">
+              <p>Forget the password</p>
+            </div>
+          </form>
+          <div class="aside">
+            <img src="../assets/images/signin-image.jpg" alt="signin_" />
+            <p>
+              <a href="../signup/">Create Account</a> instead, if you are new
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="copyright">
+      Copyright &copy; <i>habinezajanvier</i>
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      All rights reserved
+    </div>
+  </body>
+</html>

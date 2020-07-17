@@ -1,0 +1,63 @@
+main {
+  background-color: #e4ecec;
+}
+.main-wrapper {
+  background-color: white;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 50px 50px;
+  margin-left: 20%;
+  width: 60%;
+}
+.content-wrapper {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+form div {
+  border-bottom: solid black 1px;
+  margin-bottom: 20px;
+  padding-bottom: 6px;
+}
+h1,
+i {
+  color: rgba(25, 132, 132, 0.71);
+}
+form i {
+  margin-right: 10px;
+}
+input {
+  width: 300px;
+}
+button {
+  color: #ffffff;
+  background: rgba(25, 132, 132, 0.71);
+  border-radius: 7px;
+  width: 179px;
+  height: 47px;
+  margin-top: 50px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+button:hover {
+  background-color: rgba(25, 132, 132, 0.555);
+}
+.frgt_password {
+  border: none;
+  margin-top: 60px;
+  color: rgba(25, 132, 132, 0.71);
+  cursor: pointer;
+}
+.aside {
+  width: 40%;
+}
+img {
+  height: 250px;
+}
+.aside a {
+  color: rgba(25, 132, 132, 0.71);
+}
