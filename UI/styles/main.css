@@ -49,6 +49,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   color: white;
+  font-size: 18px;
 }
 nav li {
   margin-right: 20px;
@@ -64,6 +65,7 @@ main {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  min-height: 500px;
 }
 .profile,
 .description {
@@ -125,7 +127,7 @@ main {
 footer {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   box-sizing: border-box;
   padding: 15px 25px;
   background: rgba(226, 235, 235, 0.92);
@@ -134,12 +136,9 @@ h5 {
   font-size: 16px;
   line-height: 19px;
 }
-footer section {
-  width: 30%;
-}
-.media,
-.contacts {
+.media {
   margin-top: 20px;
+  flex-shrink: 1;
 }
 .social_media {
   width: 100%;
@@ -159,46 +158,50 @@ footer section {
   align-items: center;
 }
 .suscribe {
+  margin-top: 20px;
+  flex-shrink: 3;
+}
+.suscribe form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   margin-top: 20px;
 }
 .suscribe input {
   width: 100%;
   background: rgba(137, 199, 199, 0.67);
-  border-radius: 5px;
-  margin-top: 8px;
   box-sizing: border-box;
   padding: 5px 8px;
+  width: 468px;
+  height: 41px;
+  border-radius: 12px;
 }
-.contacts div {
+input:focus {
+  border: black 1px solid;
+}
+.suscribe button {
+  background-color: #5ba7a7;
+  width: 60px;
+  height: 41px;
+  font-size: 28px;
+  color: white;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  width: 100%;
-  margin-top: 30px;
-}
-.contacts i {
-  color: #54a2a2;
-  margin-right: 10px;
-  font-size: 20px;
-}
-.contact_me * {
-  width: 100%;
-  margin-top: 12px;
-}
-.contact_me input,
-.contact_me textarea {
-  background-color: #fdf9f9;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 5px;
-  padding: 5px 8px;
-}
-[type='submit'] {
-  background-color: rgba(140, 180, 180, 0.67);
+  border-radius: 20px;
+  margin-left: 15px;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 [type='submit']:hover {
-  background-color: #54a2a2;
+  background-color: rgba(140, 180, 180, 0.67);
   color: white;
+}
+.copyright {
+  height: 60px;
+  color: rgb(54, 50, 50);
+  text-align: center;
+  line-height: 60px;
 }
