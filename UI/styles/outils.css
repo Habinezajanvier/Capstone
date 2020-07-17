@@ -17,6 +17,12 @@ a:visited {
   text-decoration: none;
   color: inherit;
 }
+a:hover {
+  text-decoration: underline;
+}
+p {
+  font-weight: normal;
+}
 ul,
 ol {
   list-style: none;
