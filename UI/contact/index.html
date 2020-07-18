@@ -11,8 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/main.css" />
-    <link rel="stylesheet" href="./styles/outils.css" />
+    <link rel="stylesheet" href="../styles/contact.css" />
+    <link rel="stylesheet" href="../styles/outils.css" />
     <title>janvierHabineza</title>
   </head>
   <body>
@@ -21,55 +21,64 @@
       <nav>
         <div class="main_nav">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="./contact/">Contacts</a></li>
-            <li><a href="./about/">About me</a></li>
-            <li><a href="./story/">Stories</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../contact/">Contacts</a></li>
+            <li><a href="../about/">About me</a></li>
+            <li><a href="../story/">Stories</a></li>
           </ul>
         </div>
         <div class="credential">
           <ul>
-            <li><a href="./login/">Login</a></li>
-            <li><a href="./signup/">Signup</a></li>
+            <li><a href="../login/">Login</a></li>
+            <li><a href="#">Signup</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main>
-      <section class="profile">
-        <div class="profile_picture">
-          <img src="./assets/images/profile.jpg" alt="_avatar_" />
+      <section class="contacts">
+        <h4>Contacts</h4>
+        <div class="contacts-wrap">
+          <div class="location-wrap">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Kigali-Rwanda</p>
+          </div>
+          <div class="phone-wrap">
+            <i class="fas fa-mobile-alt"></i>
+            <p>250-789-121-324</p>
+          </div>
+          <div class="email-wrap">
+            <i class="fas fa-envelope-open-text"></i>
+            <p>habinezajanvier688@gmail.com</p>
+          </div>
         </div>
       </section>
-      <section class="description">
-        <div class="headings">
-          <h1>I am Janvier Habineza</h1>
-          <h2>Aspiring Software developer</h2>
-        </div>
-        <div class="main_text">
-          <p>
-            A fullstack develper who enjoys cracking complex Challenges to be
-            easy for Others. I enjoy interacting with people to share knowledge
-            and expreriences about web development.
-          </p>
-          <p>
-            Throught teaching and guidance, I hope I can help anyone who want to
-            dive into programming just because I know that “If you want to
-            master something, teach it
-          </p>
-          <p>
-            As a growing developer, I always want to learn new skills and work
-            on challenging projects so I can reach out of my comfort zone and
-            grow
-          </p>
-        </div>
-        <div class="navigation_btns">
-          <div class="more_about_me">
-            <h3>More About</h3>
-          </div>
-          <div class="blog_page">
-            <h3>Blog</h3>
-          </div>
+      <section class="contact_me">
+        <div class="main-wrapper">
+          <!-- frame to import svg drawing -->
+          <iframe
+            scrolling="no"
+            src="./drawing.html"
+            title="svg drawing"
+          ></iframe>
+
+          <!-- End of drawing -->
+          <form autocomplete="off">
+            <h4>CONTACT ME</h4>
+            <label for="name">
+              <p>Full name</p>
+              <input type="text" name="names" id="names" />
+            </label>
+            <label for="email">
+              <p>Email</p>
+              <input type="email" name="email" id="email" />
+            </label>
+            <label for="comment">
+              <p>Comment</p>
+              <textarea name="comment" id="comment" rows="5"></textarea>
+            </label>
+            <input type="submit" value="Send" id="cmt_submit" />
+          </form>
         </div>
       </section>
     </main>
