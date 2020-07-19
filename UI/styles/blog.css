@@ -5,23 +5,7 @@ HEADER STYLES ARE FOUND IN OUTILS.CSS
 main {
   flex-direction: column;
 }
-.carousel {
-  width: 95%;
-  background-color: #e4ecec;
-}
-.carousel-item {
-  height: 355px;
-  width: 100%;
-}
-.carousel-item section {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-}
-.carousel-item img {
-  width: 40%px;
-  height: 355px;
-}
+
 .content-wrapper {
   width: 58%;
 }
