@@ -80,3 +80,17 @@ main {
   text-align: center;
   line-height: 60px;
 }
+.custom-scrolbar::-webkit-scrollbar {
+  width: 10px;
+}
+.custom-scrolbar::-webkit-scrollbar-track {
+  background: rgba(226, 235, 235, 0.24);
+  border-radius: 10px;
+}
+.custom-scrolbar::-webkit-scrollbar-thumb {
+  background: rgb(226, 235, 235);
+  border-radius: 10px;
+}
+.custom-scrolbar::-webkit-scrollbar-thumb:hover {
+  background: #5ba7a7;
+}
