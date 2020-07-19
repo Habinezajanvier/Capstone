@@ -1,14 +1,71 @@
 /* --------------------------------------------------------
 HEADER STYLES ARE FOUND IN OUTILS.CSS
 ------------------------------------------------------------ */
-
+header li {
+  margin-bottom: 0;
+}
 main {
   flex-direction: column;
 }
 
-.content-wrapper {
-  width: 58%;
+.main-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
+.popular {
+  width: 55%;
+}
+.paragraphs {
+  height: 123px;
+  overflow: hidden;
+  margin-left: 20px;
+}
+.article-description {
+  display: flex;
+  justify-content: space-around;
+}
+.article-description img {
+  width: 142px;
+  height: 123px;
+}
+.article-reactions,
+.article-infos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.article-reactions div,
+.article-infos div {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.article-infos p {
+  margin: 0;
+}
+.single-article-preview img {
+  width: 105px;
+  height: 90.95px;
+  border-radius: 50px;
+}
+.story-list {
+  width: 40%;
+}
+.all-article-list {
+  height: 75vh;
+  overflow: scroll;
+  margin: 30px 0;
+}
+.single-article-preview {
+  display: flex;
+  align-items: center;
+  background-color: #e4ecec;
+  box-shadow: -4px 4px 9px #abd7d7;
+  margin: 20px 0;
+}
+
 footer {
   width: 100%;
   display: flex;

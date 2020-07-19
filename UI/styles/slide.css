@@ -31,3 +31,6 @@ STYLESHEET TO STYLE ALL ELEMENT RELATED TO SLIDING PART OF THE BLOG
 .carousel-control-next-icon {
   background-color: rgba(25, 132, 132, 0.71);
 }
+.content-wrapper {
+  width: 58%;
+}
