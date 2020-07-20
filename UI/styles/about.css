@@ -67,6 +67,15 @@ h2:first-child {
   height: 300px;
   background-color: #fff;
   box-shadow: 4px 4px 8px #abd7d7, -4px -4px 8px #abd7d7;
+  box-sizing: border-box;
+  padding: 50px 20px;
+  text-align: center;
+}
+.service-wrap h4 {
+  font-weight: normal;
+  font-size: 18px;
+  color: rgba(105, 212, 212, 0.877);
+  margin-bottom: 50px;
 }
 footer {
   width: 100%;
