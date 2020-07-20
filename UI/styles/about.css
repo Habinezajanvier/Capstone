@@ -77,6 +77,46 @@ h2:first-child {
   color: rgba(105, 212, 212, 0.877);
   margin-bottom: 50px;
 }
+.skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 50px 0;
+}
+.skill-wrap {
+  width: 40%;
+  margin: 15px 0;
+}
+.skill-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.skill-meter {
+  width: 100%;
+  background-color: #abd7d7;
+  border-radius: 7px;
+  height: 18px;
+}
+.skill-level {
+  height: 18px;
+  border-radius: 7px;
+  background-color: rgba(25, 132, 132, 0.71);
+}
+.beginner {
+  width: 25%;
+}
+.intermediate {
+  width: 50%;
+}
+.proficient {
+  width: 75%;
+}
+.expert {
+  width: 100%;
+}
 footer {
   width: 100%;
   display: flex;
