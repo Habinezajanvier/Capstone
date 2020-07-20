@@ -1,72 +1,6 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-body {
-  font-family: 'Roboto', sans-serif;
-}
-input,
-textarea,
-button {
-  border: none;
-  outline: none;
-}
-a,
-a:active,
-a:visited {
-  text-decoration: none;
-  color: inherit;
-}
-ul,
-ol {
-  list-style: none;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: #abd7d7;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.logo {
-  font-size: 32px;
-  font-weight: bold;
-}
-.logo span {
-  color: rgba(25, 132, 132, 0.71);
-}
-nav {
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: white;
-  font-size: 18px;
-}
-nav li {
-  margin-right: 20px;
-}
-.main_nav ul,
-.credential ul {
-  display: flex;
-  justify-content: space-around;
-}
-main {
-  margin-top: 85px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  min-height: 500px;
-}
+/* --------------------------------------------------------
+HEADER STYLES ARE FOUND IN OUTILS.CSS
+------------------------------------------------------------ */
 .profile,
 .description {
   display: flex;
@@ -107,6 +41,7 @@ main {
   justify-content: space-around;
   align-items: center;
   color: white;
+  margin-top: 70px;
 }
 .more_about_me {
   width: 251px;
@@ -115,6 +50,11 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.more_about_me:hover {
+  background-color: rgba(25, 132, 132, 0.514);
 }
 .blog_page {
   width: 251px;
@@ -123,6 +63,11 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.blog_page:hover {
+  background-color: rgba(137, 199, 199, 0.589);
 }
 footer {
   width: 100%;
@@ -196,12 +141,6 @@ input:focus {
 }
 
 [type='submit']:hover {
-  background-color: rgba(140, 180, 180, 0.67);
-  color: white;
-}
-.copyright {
-  height: 60px;
-  color: rgb(54, 50, 50);
-  text-align: center;
-  line-height: 60px;
+  background-color: white;
+  color: rgba(25, 132, 132, 0.555);
 }
