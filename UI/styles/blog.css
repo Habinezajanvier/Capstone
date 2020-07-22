@@ -1,78 +1,115 @@
 /* --------------------------------------------------------
 HEADER STYLES ARE FOUND IN OUTILS.CSS
 ------------------------------------------------------------ */
-.profile,
-.description {
-  display: flex;
-  flex-flow: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 50%;
-  min-height: 400px;
-  margin: 40px 0;
+header li {
+  margin-bottom: 0;
 }
-.profile_picture img {
-  border-radius: 50%;
-  width: 370px;
-  height: 370px;
+main {
+  flex-direction: column;
+  margin-bottom: 60px;
 }
-.headings,
-.main_text,
-.navigation_btns {
-  width: 100%;
-}
-.headings h1 {
-  font-size: 55px;
-  line-height: 64px;
+
+h2 {
   color: rgba(25, 132, 132, 0.71);
+  font-weight: bold;
 }
-.headings h2 {
-  font-size: 31px;
-  line-height: 36px;
-  font-weight: normal;
-  margin-bottom: 40px;
-}
-.main_text {
-  box-sizing: border-box;
-  padding-right: 25px;
-}
-.main_text p {
-  margin-top: 20px;
-}
-.navigation_btns {
-  box-sizing: border-box;
+
+.main-wrapper {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  color: white;
-  margin: 70px 0;
 }
-.more_about_me {
-  width: 251px;
-  height: 56px;
-  background: rgba(25, 132, 132, 0.71);
+.popular {
+  width: 55%;
+}
+.popular-story {
+  margin: 40px 0 70px;
+}
+.paragraphs {
+  height: 123px;
+  overflow: hidden;
+  margin-left: 20px;
+}
+.article-description {
+  display: flex;
+  justify-content: space-around;
+}
+.article-description img {
+  width: 142px;
+  height: 123px;
+}
+.article-reactions,
+.article-infos {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  cursor: pointer;
-  transition: 0.4s;
 }
-.more_about_me:hover {
-  background-color: rgba(25, 132, 132, 0.514);
-}
-.blog_page {
-  width: 251px;
-  height: 56px;
-  background: rgba(137, 199, 199, 0.92);
+.article-reactions div,
+.article-infos div {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  cursor: pointer;
-  transition: 0.4s;
-  margin-right: 50px;
+  margin-top: 20px;
 }
-.blog_page:hover {
-  background-color: rgba(137, 199, 199, 0.589);
+.article-reactions i,
+.article-infos i {
+  margin-right: 20px;
+  color: rgba(25, 132, 132, 0.71);
+}
+.article-reactions i {
+  cursor: pointer;
+}
+.article-infos p {
+  margin: 0;
+}
+.single-article-preview img {
+  width: 105px;
+  height: 90.95px;
+  border-radius: 50px;
+  margin: 10px 20px 10px 10px;
+}
+.story-list {
+  width: 40%;
+}
+.all-article-list {
+  height: 90vh;
+  overflow-y: scroll;
+  margin: 30px 0;
+}
+
+.single-article-preview {
+  display: flex;
+  align-items: center;
+  background-color: #e4ecec;
+  box-shadow: -4px 4px 9px #abd7d7;
+  margin: 30px 12px;
+  cursor: pointer;
+}
+.media-posts-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  margin: 40px 0;
+}
+.social-media {
+  display: flex;
+  justify-content: space-between;
+}
+iframe {
+  outline: none;
+  border: none;
+  border-radius: 20px;
+}
+h4,
+h5 {
+  font-weight: bold;
+}
+h4 {
+  margin-bottom: 40px;
+}
+.twitter {
+  height: 400px;
+  overflow-y: scroll;
 }
 footer {
   width: 100%;

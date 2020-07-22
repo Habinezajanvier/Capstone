@@ -11,9 +11,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../styles/contact.css" />
     <link rel="stylesheet" href="../styles/outils.css" />
-    <link rel="stylesheet" href="../styles/signup.css" />
-    <title>JanvierHabineza</title>
+    <title>janvierHabineza</title>
   </head>
   <body>
     <header>
@@ -36,58 +36,51 @@
       </nav>
     </header>
     <main>
-      <div class="main-wrapper">
-        <h1>Create Admin Account</h1>
-        <div class="content-wrapper">
-          <form autocomplete="off" id="signup_frm">
-            <div class="names">
-              <i class="fas fa-user-alt"></i>
-              <input
-                type="text"
-                name="names"
-                id="names"
-                placeholder="Enter your full names"
-              />
-            </div>
-            <div class="email">
-              <i class="fas fa-envelope"></i>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Your email"
-              />
-            </div>
-            <div class="password">
-              <i class="fas fa-key"></i>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Enter your password"
-              />
-            </div>
-            <div class="cfrm_password">
-              <i class="far fa-check-circle"></i>
-              <input
-                type="password"
-                name="password"
-                id="cfrm_password"
-                placeholder="Confirm your password"
-              />
-            </div>
-            <div class="agreement">
-              <input type="checkbox" name="agreement" id="agreement" />
-              <p>I agree that I am the owner of the blog</p>
-            </div>
-            <button type="submit">Sign up</button>
-          </form>
-          <div class="aside">
-            <img src="../assets/images/signup-image.jpg" alt="signup_" />
-            <p>If your have account, <a href="../login/">Login</a> instead</p>
+      <section class="contacts">
+        <h4>Contacts</h4>
+        <div class="contacts-wrap">
+          <div class="location-wrap">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Kigali-Rwanda</p>
+          </div>
+          <div class="phone-wrap">
+            <i class="fas fa-mobile-alt"></i>
+            <p>250-789-121-324</p>
+          </div>
+          <div class="email-wrap">
+            <i class="fas fa-envelope-open-text"></i>
+            <p>habinezajanvier688@gmail.com</p>
           </div>
         </div>
-      </div>
+      </section>
+      <section class="contact_me">
+        <div class="main-wrapper">
+          <!-- frame to import svg drawing -->
+          <iframe
+            scrolling="no"
+            src="./drawing.html"
+            title="svg drawing"
+          ></iframe>
+
+          <!-- End of drawing -->
+          <form autocomplete="off">
+            <h4>CONTACT ME</h4>
+            <label for="name">
+              <p>Full name</p>
+              <input type="text" name="names" id="names" />
+            </label>
+            <label for="email">
+              <p>Email</p>
+              <input type="email" name="email" id="email" />
+            </label>
+            <label for="comment">
+              <p>Comment</p>
+              <textarea name="comment" id="comment" rows="5"></textarea>
+            </label>
+            <input type="submit" value="Send" id="cmt_submit" />
+          </form>
+        </div>
+      </section>
     </main>
     <footer>
       <section class="media">
@@ -110,7 +103,7 @@
         </div>
       </section>
       <section class="suscribe">
-        <h5>Subsribe for our newsletter</h5>
+        <h5>Subscribe on my newsletter</h5>
         <form autocomplete="off">
           <input
             type="email"

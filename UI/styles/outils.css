@@ -22,6 +22,7 @@ a:hover {
 }
 p {
   font-weight: normal;
+  line-height: 1.5;
 }
 ul,
 ol {
@@ -41,6 +42,7 @@ header {
   box-sizing: border-box;
   padding-left: 20px;
   padding-right: 20px;
+  z-index: 500;
 }
 .logo {
   font-size: 32px;
@@ -78,4 +80,18 @@ main {
   color: rgb(54, 50, 50);
   text-align: center;
   line-height: 60px;
+}
+.custom-scrolbar::-webkit-scrollbar {
+  width: 10px;
+}
+.custom-scrolbar::-webkit-scrollbar-track {
+  background: rgba(226, 235, 235, 0.24);
+  border-radius: 10px;
+}
+.custom-scrolbar::-webkit-scrollbar-thumb {
+  background: rgb(226, 235, 235);
+  border-radius: 10px;
+}
+.custom-scrolbar::-webkit-scrollbar-thumb:hover {
+  background: #5ba7a7;
 }
