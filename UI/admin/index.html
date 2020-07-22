@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/c1b1e39708.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/outils.css" />
+    <title>janvierHabineza</title>
+  </head>
+  <body>
+    <header>
+      <menu>
+        <i class="fas fa-bars"></i>
+        <b>QUICK ACCESS</b>
+      </menu>
+      <nav>
+        <i class="far fa-bell"></i>
+        <i class="far fa-envelope"></i>
+        <div class="profile">
+          <img src="../assets/images/profile-avatar.jpg" alt="_avatar_" />
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="aside">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#dashboard">Add article</a>
+        <a href="#dashboard">Messages</a>
+        <a href="#dashboard">all article</a>
+        <a href="#dashboard">Account</a>
+      </div>
+      <div class="main-wrapper">
+        <div id="dashboard">
+          <div class="top-wrapp">
+            <h2>DASHBOARD</h2>
+            <div class="dash-board">
+              <div class="views">
+                <p>Views</p>
+                <h2>123</h2>
+              </div>
+              <div class="subscription">
+                <p>Subscription</p>
+                <h2>123</h2>
+              </div>
+              <div class="articles">
+                <p>Articles</p>
+                <h2>123</h2>
+              </div>
+            </div>
+          </div>
+          <form id="search-box" autocomplete="off">
+            <p>Search</p>
+            <input type="search" name="search" id="search-input" />
+            <input type="submit" value="Enter" />
+          </form>
+        </div>
+        <h2>ADD ARTICLE</h2>
+        <form autocomplete="off" id="add-article">
+          <label for="title">
+            <p>Title</p>
+            <input type="text" id="title" />
+          </label>
+          <label for="description">
+            <p>Description</p>
+            <textarea id="article-description"></textarea>
+          </label>
+          <label for="image">
+            <p>Add Image</p>
+            <input
+              type="file"
+              name="image"
+              id="article-image"
+              accept="image/*"
+            />
+          </label>
+          <input type="submit" value="SAVE" />
+        </form>
+        <div id="messages">
+          <div class="blog-wrapper">
+            <div class="message-heading">
+              <h2>MESSAGES</h2>
+              <div class="message-nber">123</div>
+            </div>
+            <div class="message-view">
+              <em>email.email@com</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                rhoncus
+              </p>
+            </div>
+            <div class="message-view">
+              <em>email.email@com</em>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                rhoncus
+              </p>
+            </div>
+          </div>
+          <div id="articles">
+            <h2>ARTICLES</h2>
+            <div class="article-view">
+              <div class="article-heads">
+                <b>Lorem Ipsum</b>
+              </div>
+              <div class="article-description">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Aenean rhoncus, nunc aliquet feugiat posuere, quam massa
+                  tincidunt odio, ut efficitur purus leo nec sapien.
+                </p>
+              </div>
+            </div>
+            <div class="article-view">
+              <div class="article-heads">
+                <b>Lorem Ipsum</b>
+              </div>
+              <div class="article-description">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Aenean rhoncus, nunc aliquet feugiat posuere, quam massa
+                  tincidunt odio, ut efficitur purus leo nec sapien.
+                </p>
+              </div> 
+            </div>
+            <div class="article-view">
+              <div class="article-heads">
+                <b>Lorem Ipsum</b>
+              </div>
+              <div class="article-description">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Aenean rhoncus, nunc aliquet feugiat posuere, quam massa
+                  tincidunt odio, ut efficitur purus leo nec sapien.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="copyright">
+      Copyright &copy; <i>habinezajanvier</i>
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      All rights reserved
+    </div>
+  </body>
+</html>
