@@ -21,6 +21,9 @@ HEADER STYLES ARE FOUND IN OUTILS.CSS
 .navigation_btns {
   width: 100%;
 }
+.navigation_btns a:hover {
+  text-decoration: none;
+}
 .headings h1 {
   font-size: 55px;
   line-height: 64px;
