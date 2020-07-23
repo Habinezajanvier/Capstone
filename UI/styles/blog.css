@@ -1,6 +1,9 @@
 /* --------------------------------------------------------
 HEADER STYLES ARE FOUND IN OUTILS.CSS
 ------------------------------------------------------------ */
+* {
+  line-height: 1.5;
+}
 header li {
   margin-bottom: 0;
 }
@@ -13,7 +16,31 @@ h2 {
   color: rgba(25, 132, 132, 0.71);
   font-weight: bold;
 }
-
+.w-100 {
+  background-color: #e4ecec;
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  margin: 60px auto;
+}
+.w-100 img {
+  width: 30%px;
+  height: 300px;
+  margin-right: 20px;
+}
+h3 {
+  font-weight: lighter;
+  margin: 15px 0;
+  font-size: 24px;
+}
+.w-100 h2 {
+  margin: 15px 0;
+}
+.w-100 p {
+  box-sizing: border-box;
+  line-height: 25px;
+  padding: 0 10px;
+}
 .main-wrapper {
   width: 90%;
   margin: 0 auto;
@@ -25,6 +52,10 @@ h2 {
 }
 .popular-story {
   margin: 40px 0 70px;
+}
+.like-wrap {
+  height: 100px;
+  overflow: hidden;
 }
 .paragraphs {
   height: 123px;
@@ -87,7 +118,6 @@ h2 {
 }
 .media-posts-wrapper {
   width: 90%;
-  margin: 0 auto;
   text-align: center;
   margin: 40px 0;
 }
@@ -109,6 +139,7 @@ h4 {
 }
 .twitter {
   height: 400px;
+  width: 550px;
   overflow-y: scroll;
 }
 footer {
@@ -188,4 +219,40 @@ input:focus {
 [type='submit']:hover {
   background-color: white;
   color: rgba(25, 132, 132, 0.555);
+}
+@media screen and (max-width: 960px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
+  .popular,
+  .story-list {
+    width: 95%;
+  }
+  .media-posts-wrapper,
+  .social-media {
+    flex-direction: column;
+    width: 80%;
+    margin: 40px auto;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .twitter {
+    height: 300px;
+    width: 500px;
+    overflow-y: scroll;
+    margin: 50px 0 10px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .w-100 {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 15px;
+  }
+  .w-100 img {
+    height: 150px;
+    width: 200px;
+  }
 }
