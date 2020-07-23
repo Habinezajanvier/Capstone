@@ -152,3 +152,16 @@ input:focus {
   background-color: white;
   color: rgba(25, 132, 132, 0.555);
 }
+@media screen and (max-width: 670px) {
+  main {
+    flex-flow: column;
+    width: 100%;
+    align-items: center;
+  }
+  .blog_page,
+  .more_about_me {
+    margin-right: unset;
+    width: 151px;
+    height: 50px;
+  }
+}
