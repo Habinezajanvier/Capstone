@@ -138,3 +138,21 @@ input:focus {
   background-color: white;
   color: rgba(25, 132, 132, 0.555);
 }
+@media screen and (max-width: 1000px) {
+  .content-wrapper {
+    flex-flow: column;
+  }
+  .aside,
+  #login_frm {
+    width: 100%;
+  }
+  .aside img {
+    display: none;
+  }
+}
+@media screen and (max-width: 670px) {
+  .main-wrapper {
+    width: 90%;
+    margin: 50px auto;
+  }
+}

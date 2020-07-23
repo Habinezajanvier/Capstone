@@ -95,3 +95,25 @@ main {
 .custom-scrolbar::-webkit-scrollbar-thumb:hover {
   background: #5ba7a7;
 }
+@media (min-width: 671px) {
+  .fa-bars {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  nav {
+    width: 70px;
+  }
+  .main_nav ul,
+  .credential ul {
+    display: none;
+  }
+  .fa-bars {
+    align-self: flex-end;
+    font-size: 30px;
+  }
+  footer {
+    flex-flow: column;
+  }
+}
