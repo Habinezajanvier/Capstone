@@ -95,23 +95,42 @@ main {
 .custom-scrolbar::-webkit-scrollbar-thumb:hover {
   background: #5ba7a7;
 }
+
 @media (min-width: 671px) {
-  .fa-bars {
+  .span,
+  .fa-bars,
+  .fa-times {
     display: none;
   }
 }
 
 @media screen and (max-width: 670px) {
   nav {
-    width: 70px;
+    display: none;
+  }
+  .static {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    z-index: 600;
+    flex-direction: column;
+    background: #abd7d7;
+    border-bottom-left-radius: 20px;
   }
   .main_nav ul,
   .credential ul {
-    display: none;
+    flex-flow: column;
+    align-self: flex-end;
   }
-  .fa-bars {
+  nav li {
+    line-height: 40px;
+  }
+  .fa-bars,
+  .fa-times {
     align-self: flex-end;
     font-size: 30px;
+    color: white;
   }
   footer {
     flex-flow: column;
