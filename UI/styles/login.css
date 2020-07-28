@@ -116,7 +116,7 @@ h5 {
   height: 41px;
   border-radius: 12px;
 }
-input:focus {
+#sub_email:focus {
   border: black 1px solid;
 }
 .suscribe button {

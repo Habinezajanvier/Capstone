@@ -13,7 +13,6 @@ var firebaseConfig = {
   appId: '1:629243722483:web:661c344ca741d192d51586',
   measurementId: 'G-LM25CW2JGQ',
 };
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 articleForm.onsubmit = (e) => {
