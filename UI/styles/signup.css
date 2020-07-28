@@ -49,7 +49,7 @@ main button {
   border-radius: 7px;
   width: 179px;
   height: 36px;
-  margin-top: 50px;
+  margin: 10px 0 20px;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -58,6 +58,12 @@ main button:hover {
 }
 .aside a {
   color: rgba(25, 132, 132, 0.71);
+}
+#message {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: none;
 }
 footer {
   width: 100%;
