@@ -30,10 +30,11 @@
         <div class="credential">
           <ul>
             <li><a href="../login/">Login</a></li>
-            <li><a href="#">Signup</a></li>
+            <li><a href="../signup/">Signup</a></li>
           </ul>
         </div>
       </nav>
+      <span class="fas span"><i class="fas fa-bars"></i></span>
     </header>
     <main>
       <section class="contacts">
@@ -45,7 +46,7 @@
           </div>
           <div class="phone-wrap">
             <i class="fas fa-mobile-alt"></i>
-            <p>250-789-121-324</p>
+            <p>+250-789-121-324</p>
           </div>
           <div class="email-wrap">
             <i class="fas fa-envelope-open-text"></i>
@@ -63,7 +64,7 @@
           ></iframe>
 
           <!-- End of drawing -->
-          <form autocomplete="off">
+          <form id="contact-frm" autocomplete="off">
             <h4>CONTACT ME</h4>
             <label for="name">
               <p>Full name</p>
@@ -110,6 +111,7 @@
             name="sub_email"
             id="sub_email"
             placeholder="Email"
+            required
           />
           <button type="submit">
             <i class="fas fa-paper-plane"></i>
@@ -124,5 +126,7 @@
       </script>
       All rights reserved
     </div>
+    <script src="../scripts/outils.js"></script>
+    <script src="../scripts/contact.js"></script>
   </body>
 </html>

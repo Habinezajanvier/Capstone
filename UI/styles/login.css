@@ -1,5 +1,7 @@
 main {
   background-color: #e4ecec;
+  padding-bottom: 60px;
+  border-bottom: solid 3px rgba(25, 132, 132, 0.3);
 }
 .main-wrapper {
   background-color: white;
@@ -24,7 +26,7 @@ form div {
   padding-bottom: 6px;
 }
 h1,
-i {
+main i {
   color: rgba(25, 132, 132, 0.71);
 }
 form i {
@@ -33,7 +35,7 @@ form i {
 input {
   width: 300px;
 }
-button {
+main button {
   color: #ffffff;
   background: rgba(25, 132, 132, 0.71);
   border-radius: 7px;
@@ -43,7 +45,7 @@ button {
   cursor: pointer;
   transition: 0.4s;
 }
-button:hover {
+main button:hover {
   background-color: rgba(25, 132, 132, 0.555);
 }
 .frgt_password {
@@ -60,4 +62,97 @@ img {
 }
 .aside a {
   color: rgba(25, 132, 132, 0.71);
+}
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 15px 25px;
+  background: rgba(226, 235, 235, 0.92);
+}
+h5 {
+  font-size: 16px;
+  line-height: 19px;
+}
+.media {
+  margin-top: 20px;
+  flex-shrink: 1;
+}
+.social_media {
+  width: 100%;
+}
+.media_icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.media_icons i {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: #54a2a2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.suscribe {
+  margin-top: 20px;
+  flex-shrink: 3;
+}
+.suscribe form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.suscribe input {
+  width: 100%;
+  background: rgba(137, 199, 199, 0.67);
+  box-sizing: border-box;
+  padding: 5px 8px;
+  width: 468px;
+  height: 41px;
+  border-radius: 12px;
+}
+#sub_email:focus {
+  border: black 1px solid;
+}
+.suscribe button {
+  background-color: #5ba7a7;
+  width: 60px;
+  height: 41px;
+  font-size: 28px;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  margin-left: 15px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.suscribe button:hover {
+  background-color: white;
+  color: rgba(25, 132, 132, 0.555);
+}
+@media screen and (max-width: 1000px) {
+  .content-wrapper {
+    flex-flow: column;
+  }
+  .aside,
+  #login_frm {
+    width: 100%;
+  }
+  .aside img {
+    display: none;
+  }
+}
+@media screen and (max-width: 670px) {
+  .main-wrapper {
+    width: 90%;
+    margin: 50px auto;
+  }
 }

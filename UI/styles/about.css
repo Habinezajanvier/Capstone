@@ -1,14 +1,6 @@
 /* --------------------------------------------------------
 HEADER STYLES ARE FOUND IN OUTILS.CSS
 ------------------------------------------------------------ */
-.photo-background {
-  height: 100vh;
-  position: fixed;
-  top: 80px;
-  right: 0;
-  width: 525px;
-  z-index: -100;
-}
 h2 {
   text-align: center;
   color: rgba(25, 132, 132, 0.71);
@@ -19,10 +11,6 @@ h2 {
   box-sizing: border-box;
   border-bottom: solid 2px rgba(105, 212, 212, 0.71);
   border-top: solid 2px rgba(105, 212, 212, 0.71);
-}
-.photo-background img {
-  width: 100%;
-  height: 100%;
 }
 .main-wrapper {
   padding: 50px 0;
@@ -194,6 +182,21 @@ input:focus {
   background-color: white;
   color: rgba(25, 132, 132, 0.555);
 }
-.copyright {
-  background-color: rgba(255, 255, 255, 0.75);
+@media screen and (min-width: 768px) {
+  .service-wrap {
+    height: 250px;
+    width: 250px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .services-wrapper {
+    flex-flow: column;
+
+    align-items: center;
+  }
+  .service-wrap {
+    height: 250px;
+    width: 300px;
+    margin: 20px 0;
+  }
 }
