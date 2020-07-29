@@ -1,3 +1,5 @@
+@import './popup.modular.css';
+
 main {
   flex-direction: column;
 }
@@ -97,7 +99,7 @@ nav img {
   padding: 8px 10px;
   margin-bottom: 30px;
 }
-textarea {
+#add-article textarea {
   overflow: hidden;
 }
 #submit-article {

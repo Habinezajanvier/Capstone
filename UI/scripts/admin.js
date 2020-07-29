@@ -1,49 +1,31 @@
-const title = document.getElementById('title');
-const description = document.getElementById('article-description');
-const articleForm = document.getElementById('add-article');
-const submitBtn = document.getElementById('submit-article');
+let popStatus = false;
 
-var firebaseConfig = {
-  apiKey: 'AIzaSyDXjzhhVxgmcQocADJS8slT0Pi4505RTPU',
-  authDomain: 'my-brand-project.firebaseapp.com',
-  databaseURL: 'https://my-brand-project.firebaseio.com',
-  projectId: 'my-brand-project',
-  storageBucket: 'my-brand-project.appspot.com',
-  messagingSenderId: '629243722483',
-  appId: '1:629243722483:web:661c344ca741d192d51586',
-  measurementId: 'G-LM25CW2JGQ',
-};
-firebase.initializeApp(firebaseConfig);
+function cancel() {
+  popStatus = false;
+  togglePopup(popStatus);
+}
 
-articleForm.onsubmit = (e) => {
-  e.preventDefault();
-  submitBtn.value = 'Loading ...';
-  fetch('https://my-brand-project.firebaseio.com/article.json', {
-    method: 'POST',
-    body: JSON.stringify({
-      title: title.value,
-      description: description.value,
-    }),
-  })
-    .then((res) => {
-      if (res.status != 200) {
-        description.style.color = 'red';
-        description.value = 'Something went wrong try Again';
-      } else {
-        res.json();
-      }
-    })
-    .then((data) => {
-      articleForm.reset();
-      submitBtn.value = 'Success';
-      setTimeout(() => {
-        submitBtn.value = 'SAVE';
-      }, 3000);
-    });
+document.onclick = (e) => {
+  if (e.target.closest('.fa-edit')) {
+    popStatus = true;
+    editDisplay();
+    togglePopup(popStatus);
+  } else if (e.target.closest('.fa-trash-alt')) {
+    popStatus = true;
+    deleteDisplay();
+    togglePopup(popStatus);
+  } else if (!e.target.closest('.popup')) {
+    popStatus = false;
+    togglePopup(popStatus);
+  }
 };
 
-fetch('https://my-brand-project.firebaseio.com/article.json/', {
-  method: 'get',
-})
-  .then((res) => res.json())
-  .then((data) => console.log(data));
+function editDisplay() {
+  const description = element('.fa-trash-alt').parentNode.parentNode
+    .childNodes[1].innerHTML;
+  let editFormcontent = editForm('Lorem Ipsum', description);
+  let popupContent = popupText('Edit Article', editFormcontent, 'Save Changes');
+  element('.popup').classList.remove('delete-overlay');
+  element('.popup').classList.add('edit-overlay');
+  element('.popup').innerHTML = popupContent;
+}
