@@ -4,6 +4,7 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordCfrm = document.getElementById('cfrm_password');
 const message = document.getElementById('message');
+const submitBtn = document.getElementById('submitBtn');
 
 const verify = (name, email, password, cfrmPassword, form) => {
   const nameFormat = /^[a-z]{2}([a-z][\W]*)/i;
@@ -23,8 +24,8 @@ const verify = (name, email, password, cfrmPassword, form) => {
     message.style.color = '#88040a';
     message.innerHTML = "Your passwords does't match";
   } else {
-    message.innerHTML = '';
-    form.reset();
+    submitBtn.innerHTML = 'Loading...';
+    signup(email.value, password.value, form);
   }
 };
 
@@ -32,3 +33,43 @@ signupFrm.onsubmit = (e) => {
   e.preventDefault();
   verify(names, email, password, passwordCfrm, signupFrm);
 };
+
+let signupSucceed = false;
+async function signup(email, password, form) {
+  signupSucceed = true;
+
+  await firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .catch((error) => {
+      signupSucceed = false;
+      let errorMessage = error.message;
+      message.style.color = '#88040a';
+      message.innerHTML = `${errorMessage}`;
+    });
+  checkSignup(form, names.value);
+}
+
+function checkSignup(form, name) {
+  form.reset();
+  submitBtn.innerHTML = 'Sign up';
+  if (signupSucceed) {
+    window.location = '../admin/';
+    message.innerHTML = '';
+    saveUserName(name);
+  }
+}
+
+function saveUserName(name) {
+  let user = firebase.auth().currentUser;
+  user
+    .updateProfile({
+      displayName: name,
+    })
+    .then(() => {
+      return true;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
