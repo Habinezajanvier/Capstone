@@ -32,8 +32,72 @@ function editDisplay() {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log(user);
+    // console.log(user);
+    return true;
   } else {
     window.location = '../login/';
   }
 });
+
+/**
+ * function to upload photo for an article to firebase
+ */
+let url;
+
+element('#article-image').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  let storage = firebase.storage();
+  let storeageRef = storage.ref(file.name);
+
+  storeageRef.put(file).on(
+    'state_changed',
+    (snap) => {
+      let progress = (snap.bytesTransferred / snap.totalBytes) * 100;
+      element('#upload').innerHTML = progress + ' %';
+      console.log(progress + '%');
+    },
+    (error) => {
+      element('#upload').innerHTML = error.message;
+      console.log(error);
+    },
+    async () => {
+      url = await storeageRef.getDownloadURL();
+      element('#upload').innerHTML = `<img src='${url}' alt="article-photo">`;
+      console.log(url);
+    }
+  );
+});
+/**
+ * Function to upload an article on firebase
+ */
+
+element('#add-article').onsubmit = (e) => {
+  e.preventDefault();
+  element('#submit-article').value = 'loading...';
+  const database = firebase.database();
+  const postRef = database.ref('articles').push();
+
+  postRef.set(
+    {
+      title: element('#title').value,
+      body: element('#article-description').value,
+      imageUrl: url ? url : null,
+      views: {
+        locations: 'none',
+        number: 0,
+      },
+      likes: 0,
+      unlikes: 0,
+      shares: 0,
+      comments: 0,
+    },
+    (error) => {
+      if (error) {
+        console.log(error);
+      } else {
+        element('#submit-article').value = 'SAVE';
+        element('#add-article').reset();
+      }
+    }
+  );
+};
