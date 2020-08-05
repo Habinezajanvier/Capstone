@@ -14,7 +14,7 @@ const popupText = (heading, content, confirmation) => {
 function togglePopup(popupStatus) {
   if (popupStatus) {
     element('.popup').style.display = 'flex';
-    element('.shield').style.display = 'inherit';
+    element('.shield').style.display = 'flex';
   } else {
     element('.popup').style.display = 'none';
     element('.shield').style.display = 'none';

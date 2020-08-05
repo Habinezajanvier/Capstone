@@ -70,14 +70,14 @@ element('#article-image').addEventListener('change', (e) => {
 /**
  * Function to upload an article on firebase
  */
-
+const database = firebase.database();
+const postRef = database.ref('articles');
 element('#add-article').onsubmit = (e) => {
   e.preventDefault();
   element('#submit-article').value = 'loading...';
-  const database = firebase.database();
-  const postRef = database.ref('articles').push();
+  const newRef = postRef.push();
 
-  postRef.set(
+  newRef.set(
     {
       title: element('#title').value,
       body: element('#article-description').value,
@@ -101,3 +101,71 @@ element('#add-article').onsubmit = (e) => {
     }
   );
 };
+/**
+ * inserting all articles on Admin dashboard,
+ */
+function appendArticle(articleId, article) {
+  const parentElem = document.createElement('div');
+  parentElem.classList.add('one-article');
+  parentElem.innerHTML = `<div id="${articleId}" class="article-heads">
+    <b>${article.title}</b>
+    </div>
+    <div class="article-description">
+    <p>
+      ${article.body}
+    </p>
+    <div class="article-infos">
+      <a href="./info.html"><i class="fas fa-info-circle"></i></a>
+      <i class="far fa-edit"></i><i class="far fa-trash-alt"></i>
+    </div>
+    </div>
+    </div>`;
+  return parentElem;
+}
+
+function displayArticle() {
+  element('#article-section').innerHTML = 'waiting ...';
+  postRef.once('value').then(function (snapshot) {
+    let snapshotKeys = Object.keys(snapshot.val());
+    if (snapshotKeys.length === 0) {
+      element('#article-section').innerHTML = 'No Article is found';
+    } else {
+      element('#article-section').innerHTML = '';
+      snapshotKeys.forEach((arr) => {
+        element('#article-section').append(
+          appendArticle(arr, snapshot.val()[arr])
+        );
+      });
+    }
+  });
+}
+
+function swithDisplay(show, hide1, hide2, hide3) {
+  element(show).style.display = 'flex';
+
+  //Hide everithing that is not arrArticle element;
+  element(hide1).style.display = 'none';
+  element(hide2).style.display = 'none';
+  element(hide3).style.display = 'none';
+}
+
+element('.new-article').addEventListener('click', () => {
+  swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
+});
+
+element('.dashboard-point').addEventListener('click', () => {
+  swithDisplay('#dashboard', '#adding-article', '#articles', '#messages');
+});
+
+element('.messages-point').addEventListener('click', () => {
+  swithDisplay('#messages', '#dashboard', '#adding-article', '#articles');
+});
+
+element('.articles-point').addEventListener('click', () => {
+  displayArticle();
+  swithDisplay('#articles', '#messages', '#dashboard', '#adding-article');
+});
+
+element('.article-heads').addEventListener('click', () => {
+  swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
+});
