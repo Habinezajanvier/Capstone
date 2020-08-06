@@ -276,9 +276,6 @@ nav img {
   box-sizing: border-box;
   padding: 10px;
 }
-#articles {
-  height: 100vh;
-}
 .article-view {
   margin: 16px 0 15px 20px;
   display: flex;

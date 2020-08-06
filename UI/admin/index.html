@@ -106,7 +106,7 @@
           <form autocomplete="off" id="add-article">
             <label for="title">
               <p>Title</p>
-              <input type="text" id="title" />
+              <input type="text" id="title" required />
             </label>
             <label for="description">
               <p>Description</p>
@@ -114,6 +114,7 @@
                 id="article-description"
                 oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
                 rows="10"
+                required
               ></textarea>
             </label>
             <label for="image">

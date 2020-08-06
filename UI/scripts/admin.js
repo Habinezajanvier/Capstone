@@ -96,6 +96,7 @@ element('#add-article').onsubmit = (e) => {
         console.log(error);
       } else {
         element('#submit-article').value = 'SAVE';
+        element('#upload').innerHTML = '';
         element('#add-article').reset();
       }
     }
