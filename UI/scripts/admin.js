@@ -12,7 +12,7 @@ document.onclick = (e) => {
     togglePopup(popStatus);
   } else if (e.target.closest('.fa-trash-alt')) {
     popStatus = true;
-    deleteDisplay();
+    deleteDisplay(e);
     togglePopup(popStatus);
   } else if (!e.target.closest('.popup')) {
     popStatus = false;
@@ -102,7 +102,7 @@ element('#add-article').onsubmit = (e) => {
   );
 };
 /**
- * inserting all articles on Admin dashboard,
+ * Appending all articles from DB on Admin dashboard,
  */
 function appendArticle(articleId, article) {
   const parentElem = document.createElement('div');
@@ -126,10 +126,11 @@ function appendArticle(articleId, article) {
 function displayArticle() {
   element('#article-section').innerHTML = 'waiting ...';
   postRef.once('value').then(function (snapshot) {
-    let snapshotKeys = Object.keys(snapshot.val());
-    if (snapshotKeys.length === 0) {
-      element('#article-section').innerHTML = 'No Article is found';
+    if (!snapshot.val()) {
+      element('#article-section').innerHTML =
+        'No Article posted yet CREATE NEW';
     } else {
+      let snapshotKeys = Object.keys(snapshot.val());
       element('#article-section').innerHTML = '';
       snapshotKeys.forEach((arr) => {
         element('#article-section').append(
@@ -140,10 +141,26 @@ function displayArticle() {
   });
 }
 
+/**
+ * Deleting an article from the firebase
+ */
+function deleteArticle(id) {
+  postRef
+    .child(id)
+    .remove()
+    .then(() => {
+      cancel();
+      displayArticle();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
 function swithDisplay(show, hide1, hide2, hide3) {
   element(show).style.display = 'flex';
 
-  //Hide everithing that is not arrArticle element;
+  //Hide everithing that I don't want to display
   element(hide1).style.display = 'none';
   element(hide2).style.display = 'none';
   element(hide3).style.display = 'none';
