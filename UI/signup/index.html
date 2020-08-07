@@ -53,7 +53,7 @@
             <div class="email">
               <i class="fas fa-envelope"></i>
               <input
-                type="email"
+                type="text"
                 name="email"
                 id="email"
                 placeholder="Your email"
@@ -81,7 +81,8 @@
               <input type="checkbox" name="agreement" id="agreement" />
               <p>I agree that I am the owner of the blog</p>
             </div>
-            <button type="submit">Sign up</button>
+            <div id="message"></div>
+            <button id="submitBtn" type="submit">Sign up</button>
           </form>
           <div class="aside">
             <img src="../assets/images/signup-image.jpg" alt="signup_" />
@@ -118,6 +119,7 @@
             name="sub_email"
             id="sub_email"
             placeholder="Email"
+            required
           />
           <button type="submit">
             <i class="fas fa-paper-plane"></i>
@@ -132,6 +134,9 @@
       </script>
       All rights reserved
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
     <script src="../scripts/outils.js"></script>
+    <script src="../scripts/signup.js"></script>
   </body>
 </html>

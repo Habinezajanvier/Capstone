@@ -1,0 +1,70 @@
+.popup {
+  background-color: white;
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 50px;
+  text-align: center;
+  flex-flow: column;
+  justify-content: space-between;
+}
+.delete-overlay {
+  width: 678px;
+  height: 278px;
+}
+.decision {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+h5 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: rgba(25, 132, 132, 0.82);
+}
+.decision button {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.delete-overlay .decision button:first-child {
+  background: rgba(137, 199, 199, 0.92);
+}
+.delete-overlay .decision button:last-child {
+  background: rgba(119, 30, 30, 0.92);
+  color: white;
+}
+.shield {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  background-color: #54a2a281;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+#edit-title,
+#edit-article textarea {
+  background: rgba(226, 235, 235, 0.92);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 7px;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 30px;
+}
+#submit-article {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 12px 10px;
+  background: #54a2a2;
+  margin: 20px 0;
+  border-radius: 7px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

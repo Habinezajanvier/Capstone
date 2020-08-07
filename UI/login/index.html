@@ -48,6 +48,7 @@
                 name="email"
                 id="email"
                 placeholder="Your email"
+                required
               />
             </div>
             <div class="password">
@@ -57,9 +58,10 @@
                 name="password"
                 id="password"
                 placeholder="Enter your password"
+                required
               />
             </div>
-            <button type="submit">Login</button>
+            <button id="frm_submit" type="submit">Login</button>
             <div class="frgt_password">
               <p>Forget the password</p>
             </div>
@@ -101,6 +103,7 @@
             name="sub_email"
             id="sub_email"
             placeholder="Email"
+            required
           />
           <button type="submit">
             <i class="fas fa-paper-plane"></i>
@@ -115,6 +118,9 @@
       </script>
       All rights reserved
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
     <script src="../scripts/outils.js"></script>
+    <script src="../scripts/login.js"></script>
   </body>
 </html>
