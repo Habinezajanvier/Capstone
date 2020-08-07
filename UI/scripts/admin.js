@@ -179,7 +179,7 @@ function displayOneMessage(id, elementObj) {
     <p>
       ${elementObj.messages}
     </p>
-    <div class='message-delete' id ='${id}'><i class="far fa-trash-alt"></i></div>
+    <div class='message-delete' onclick='deleteMessage("${id}")'><i class="fas fa-trash"></i></div>
   </div>`;
   return messageElement;
 }
@@ -202,7 +202,23 @@ function displayMessages() {
     }
   });
 }
-
+/**
+ * Function to delete message from firebase DB
+ */
+function deleteMessage(id) {
+  messageRef
+    .child(id)
+    .remove()
+    .then(() => {
+      element('#message-display').innerHTML = 'message Deleted';
+      setTimeout(() => {
+        displayMessages();
+      }, 3500);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 element('.new-article').addEventListener('click', () => {
   swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
 });

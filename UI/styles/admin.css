@@ -306,7 +306,8 @@ nav img {
 .article-infos i {
   cursor: pointer;
 }
-.fa-trash-alt {
+.fa-trash-alt,
+.fa-trash {
   color: rgba(172, 67, 67, 0.71);
 }
 .copyright {
