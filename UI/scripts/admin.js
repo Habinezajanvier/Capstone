@@ -167,6 +167,42 @@ function swithDisplay(show, hide1, hide2, hide3) {
   element(hide3).style.display = 'none';
 }
 
+/**
+ * Functions to display messages on admin dashboard
+ */
+const messageRef = database.ref('messages');
+
+function displayOneMessage(id, elementObj) {
+  let messageElement = document.createElement('div');
+  messageElement.innerHTML = `<div id='${id}' class="message-view">
+    <b>${elementObj.names}</b><br><em>${elementObj.email}</em>
+    <p>
+      ${elementObj.messages}
+    </p>
+    <div class='message-delete' id ='${id}'><i class="far fa-trash-alt"></i></div>
+  </div>`;
+  return messageElement;
+}
+
+function displayMessages() {
+  element('#message-display').innerHTML = 'waiting ...';
+
+  messageRef.once('value').then(function (snapshot) {
+    if (!snapshot.val()) {
+      element('#message-display').innerHTML = 'No messages found';
+    } else {
+      let snapshotKeys = Object.keys(snapshot.val());
+      element('#message-nber').innerHTML = snapshotKeys.length;
+      element('#message-display').innerHTML = '';
+      snapshotKeys.forEach((arr) => {
+        element('#message-display').append(
+          displayOneMessage(arr, snapshot.val()[arr])
+        );
+      });
+    }
+  });
+}
+
 element('.new-article').addEventListener('click', () => {
   swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
 });
@@ -177,6 +213,7 @@ element('.dashboard-point').addEventListener('click', () => {
 
 element('.messages-point').addEventListener('click', () => {
   swithDisplay('#messages', '#dashboard', '#adding-article', '#articles');
+  displayMessages();
 });
 
 element('.articles-point').addEventListener('click', () => {

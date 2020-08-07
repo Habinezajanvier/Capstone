@@ -46,6 +46,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 500;
 }
 
 main {
@@ -63,7 +64,6 @@ main {
   background-color: var(--primary);
   height: 90vh;
   width: 250px;
-  box-sizing: border-box;
   padding: 20px 40px;
   color: white;
 }
@@ -107,7 +107,6 @@ h2 {
 }
 nav img {
   border: 1px solid #000000;
-  box-sizing: border-box;
   border-radius: 50%;
   margin-right: 5px;
 }
@@ -158,7 +157,6 @@ nav img {
 .dash-board div {
   width: 220px;
   border: 1px solid #000000;
-  box-sizing: border-box;
   border-radius: 10px;
   padding: 10px 0;
   margin: 0 15px;
@@ -205,14 +203,12 @@ nav img {
   flex-flow: column;
   background-color: #abd7d7;
   border-radius: 15px;
-  box-sizing: border-box;
   padding: 20px;
 }
 #title,
 #add-article textarea {
   background: rgba(226, 235, 235, 0.92);
   border: 1px solid #000000;
-  box-sizing: border-box;
   border-radius: 7px;
   width: 100%;
   padding: 8px 10px;
@@ -223,7 +219,6 @@ nav img {
 }
 #submit-article {
   width: 50%;
-  box-sizing: border-box;
   padding: 12px 10px;
   background: #54a2a2;
   margin: 20px 0;
@@ -272,14 +267,23 @@ nav img {
 .one-article {
   margin: 16px 10px 15px 0;
   background: #c4c4c4;
-  border-radius: 12px;
-  box-sizing: border-box;
   padding: 10px;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.message-view {
+  position: relative;
+}
+.message-view .message-delete {
+  position: absolute;
+  top: 20%;
+  right: 20px;
+  cursor: pointer;
+  font-size: 24px;
 }
 .article-view {
   margin: 16px 0 15px 20px;
   display: flex;
-  box-sizing: border-box;
   padding: 15px;
 }
 .article-heads img {
