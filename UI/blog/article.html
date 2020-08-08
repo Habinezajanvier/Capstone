@@ -49,18 +49,27 @@
           <div class="comment">
             <h2>Write your comment</h2>
             <form id="commentFrm" autocomplete="off">
+              <input
+                type="text"
+                name="name"
+                id="userName"
+                placeholder="Your full Name"
+                required
+              />
               <textarea
                 name="comments"
                 id="comments"
                 cols="30"
                 rows="10"
+                required
               ></textarea>
-              <button>SUBMIT YOUR COMMENT</button>
+              <button id="submit">SUBMIT YOUR COMMENT</button>
             </form>
           </div>
         </div>
         <div class="aside">
           <h2>Other Articles</h2>
+          <div class="article-lists"></div>
         </div>
       </div>
     </main>

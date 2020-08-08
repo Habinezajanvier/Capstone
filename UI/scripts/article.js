@@ -1,7 +1,16 @@
+const urlParams = new URLSearchParams(location.search);
+const id = urlParams.get('id');
+let comments = [];
+let article = {};
+
 const getArticle = (id) => {
   fetch(`https://my-brand-project.firebaseio.com/articles/${id}.json`)
     .then((res) => res.json())
     .then((data) => {
+      if (data.comments) {
+        comments = [...data.comments];
+      }
+      article = data;
       const displayImage = (url) => {
         return url
           ? `<img class='image';
@@ -46,9 +55,10 @@ function updateAllList(id, photo, title, lastEdit, views) {
 
 const updatePreviewSection = () => {
   postRef.on('value', (snap) => {
+    selector('.article-lists').innerHTML = '';
     const articleIds = Object.keys(snap.val());
     articleIds.forEach((a) => {
-      selector('.aside').append(
+      selector('.article-lists').append(
         updateAllList(
           a,
           snap.val()[a].imageUrl,
@@ -63,10 +73,30 @@ const updatePreviewSection = () => {
     });
   });
 };
-
+/**
+ * Function to enable comment on article
+ */
+function submitComment(id, form) {
+  const commentsValue = {
+    name: selector('#userName').value,
+    comment: selector('#comments').value,
+  };
+  comments.push(commentsValue);
+  article.comments = comments;
+  database.ref('/articles/' + id).set(article, (error) => {
+    if (error) {
+      console.log(error);
+    } else {
+      form.reset();
+    }
+  });
+}
+selector('#commentFrm').onsubmit = (e) => {
+  e.preventDefault();
+  const form = selector('#commentFrm');
+  submitComment(id, form);
+};
 window.onload = () => {
-  const urlParams = new URLSearchParams(location.search);
-  const id = urlParams.get('id');
   getArticle(id);
   updatePreviewSection();
 };

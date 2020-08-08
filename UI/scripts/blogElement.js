@@ -36,7 +36,7 @@ function mostLikedArticle(photo, obj, id) {
                 </div>
                 <div class="comments">
                   <i class="far fa-comments"></i>
-                  ${obj.comments}
+                  ${obj.comments.length}
                 </div>
                 <div class="share">
                   <i class="fas fa-share-alt"></i>
@@ -90,7 +90,7 @@ const popularArticle = (photo, obj) => {
                 </div>
                 <div class="comments">
                 <i class="far fa-comments"></i>
-                ${obj.comments}
+                ${obj.comments.length}
                 </div>
                 <div class="share">
                 <i class="fas fa-share-alt"></i>

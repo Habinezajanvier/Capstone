@@ -1,7 +1,9 @@
 main {
   flex-direction: column;
 }
-
+* {
+  box-sizing: border-box;
+}
 h1,
 h2 {
   color: rgba(25, 132, 132, 0.71);
@@ -77,14 +79,17 @@ h3 {
   width: 100%;
 }
 #comments,
+#userName,
 .comment button {
   width: 90%;
 }
+#userName,
 #comments {
   margin: 5px 0 12px;
   background: #fdf9f9;
   border: 1px solid #000000;
   border-radius: 5px;
+  padding: 10px;
 }
 .comment button {
   padding: 10px 0;
