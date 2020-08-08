@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../styles/blog.css" />
+    <link rel="stylesheet" href="../styles/article.css" />
     <link rel="stylesheet" href="../styles/outils.css" />
     <title>janvierHabineza</title>
   </head>
@@ -38,41 +38,29 @@
       <span class="fas span"><i class="fas fa-bars"></i></span>
     </header>
     <main>
-      <div class="w-100"></div>
       <div class="main-wrapper">
-        <section class="popular">
-          <h2>Most Popular</h2>
-          <div class="popular-story" id="pop-story-1">....</div>
-          <div class="popular-story" id="pop-story-2">....</div>
-        </section>
-        <section class="story-list">
-          <h2>All Stories</h2>
-          <div class="all-article-list custom-scrolbar"></div>
-        </section>
-      </div>
-      <div class="media-posts-wrapper">
-        <h4>POSTS FROM SOCIAL MEDIA</h4>
-        <div class="social-media">
-          <section class="youtube">
-            <iframe
-              width="500px"
-              height="350"
-              src="https://www.youtube.com/embed/pQN-pnXPaVg?controls=1"
-            >
-            </iframe>
-          </section>
-          <section class="twitter custom-scrolbar">
-            <a
-              class="twitter-timeline"
-              href="https://twitter.com/habineza_jan?ref_src=twsrc%5Etfw"
-              >Tweets by habineza_jan</a
-            >
-            <script
-              async
-              src="https://platform.twitter.com/widgets.js"
-              charset="utf-8"
-            ></script>
-          </section>
+        <div class="content-wrapper">
+          <div class="article-wrap"></div>
+          <div class="reactions">
+            <i id="like" class="far fa-thumbs-up"></i>
+            <i id="unlike" class="far fa-thumbs-down"></i>
+            <i id="share" class="fas fa-share-alt"></i>
+          </div>
+          <div class="comment">
+            <h2>Write your comment</h2>
+            <form id="commentFrm" autocomplete="off">
+              <textarea
+                name="comments"
+                id="comments"
+                cols="30"
+                rows="10"
+              ></textarea>
+              <button>SUBMIT YOUR COMMENT</button>
+            </form>
+          </div>
+        </div>
+        <div class="aside">
+          <h2>Other Articles</h2>
         </div>
       </div>
     </main>
@@ -123,6 +111,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
     <script src="../scripts/outils.js"></script>
     <script src="../scripts/blogElement.js"></script>
-    <script src="../scripts/blog.js"></script>
+    <script src="../scripts/article.js"></script>
   </body>
 </html>

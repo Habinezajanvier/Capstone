@@ -1,116 +1,19 @@
-const database = firebase.database();
-const postRef = database.ref('articles');
-
-const selector = (identifier) => {
-  return document.querySelector(identifier);
-};
-
-const displayImage = (url) => {
-  return url
-    ? `<img
-    src="${url}"
-    alt="article_avatar"
-  />`
-    : '';
-};
-
-function mostLikedArticle(photo, obj) {
-  return `<div class='most-liked'>
-              ${displayImage(photo)}
-            <div class="content-wrapper">
-              <h3>Most liked</h3>
-              <h2>${obj.title}</h2>
-              <div class="like-wrap">
-                <p>
-                ${obj.body}
-                </p>
-              </div>
-              <div class="article-reactions">
-                <div class="likes">
-                  <i class="far fa-thumbs-up"></i>
-                  ${obj.likes}
-                </div>
-                <div class="unlikes">
-                  <i class="far fa-thumbs-down"></i>
-                  ${obj.unlikes}
-                </div>
-                <div class="comments">
-                  <i class="far fa-comments"></i>
-                  ${obj.comments}
-                </div>
-                <div class="share">
-                  <i class="fas fa-share-alt"></i>
-                  ${obj.shares}
-                </div>
-              </div>
-            </div>
-          </div>
-    `;
-}
-
-function preveiwArticle(photo, title, time, views) {
-  const preveiwSection = document.createElement('div');
-  preveiwSection.classList.add('single-article-preview');
-  preveiwSection.innerHTML = `
-    ${displayImage(photo)}
-    <div class="article-preveiw">
-      <h3>${title}</h3>
-      <div class="article-infos">
-        <div class="last-edit">
-          <i class="fas fa-edit"></i>
-          <p>${time || '12-jul-202'}</p>
-        </div>
-        <div class="views">
-          <i class="far fa-eye"></i>
-          <p>${views || 0}</p>
-        </div>
-      </div>
-    </div>
-  `;
-  return preveiwSection;
-}
-
-const popularArticle = (photo, obj) => {
-  return `<h3>${obj.title}</h3>
-            <div class="article-description">
-                ${displayImage(photo)}
-                <div class="paragraphs">
-                ${obj.body}
-                </div>
-            </div>
-            <div class="article-reactions">
-                <div class="likes">
-                <i class="far fa-thumbs-up"></i>
-                ${obj.likes}
-                </div>
-                <div class="unlikes">
-                <i class="far fa-thumbs-down"></i>
-                ${obj.unlikes}
-                </div>
-                <div class="comments">
-                <i class="far fa-comments"></i>
-                ${obj.comments}
-                </div>
-                <div class="share">
-                <i class="fas fa-share-alt"></i>
-                ${obj.shares}
-                </div>
-            </div>
-    `;
-};
-
 const updatePreviewSection = () => {
   postRef.on('value', (snap) => {
     const articleIds = Object.keys(snap.val());
     articleIds.forEach((a) => {
       selector('.all-article-list').append(
         preveiwArticle(
+          a,
           snap.val()[a].imageUrl,
           snap.val()[a].title,
           snap.val()[a].lastEdit,
           snap.val()[a].views.number
         )
       );
+    });
+    document.querySelectorAll('.single-article-preview').forEach((element) => {
+      element.addEventListener('click', singleArticleRedirection);
     });
   });
 };
