@@ -2,19 +2,19 @@ const element = (identifier) => {
   return document.querySelector(identifier);
 };
 
-const popupText = (heading, content, confirmation) => {
+const popupText = (heading, content, classes, confirmation) => {
   return `
       <h5>${heading}</h5>
       <div class='content-wrapper'>${content}</div>
       <div class='decision'><button onclick=cancel()>Cancel</button>
-      <button>${confirmation}</button></div>
+      <button class="${classes}" >${confirmation}</button></div>
       `;
 };
 
 function togglePopup(popupStatus) {
   if (popupStatus) {
     element('.popup').style.display = 'flex';
-    element('.shield').style.display = 'inherit';
+    element('.shield').style.display = 'flex';
   } else {
     element('.popup').style.display = 'none';
     element('.shield').style.display = 'none';
@@ -48,15 +48,19 @@ const editForm = (title, description) => {
           </form>
         `;
 };
-
-function deleteDisplay() {
+let ids;
+function deleteDisplay(e) {
+  ids = e.target.parentNode.parentNode.parentNode.childNodes[0].id;
   let content =
     'The action you want to take on this article is irreversible.<br> Do you really want to continue';
 
-  let popupContent = popupText('Warning', content, 'Delete');
+  let popupContent = popupText('Warning', content, 'delete', 'Delete');
   element('.popup').classList.remove('edit-overlay');
   element('.popup').classList.add('delete-overlay');
   element('.popup').innerHTML = popupContent;
+  element('.delete').addEventListener('click', () => {
+    deleteArticle(ids);
+  });
 }
 // Your web app's Firebase configuration
 var firebaseConfig = {
