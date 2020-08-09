@@ -1,7 +1,9 @@
 const urlParams = new URLSearchParams(location.search);
 const id = urlParams.get('id');
 let comments = [];
+let views = [];
 let article = {};
+let position;
 
 const getArticle = (id) => {
   fetch(`https://my-brand-project.firebaseio.com/articles/${id}.json`)
@@ -9,6 +11,9 @@ const getArticle = (id) => {
     .then((data) => {
       if (data.comments) {
         comments = [...data.comments];
+      }
+      if (data.views) {
+        views = [...data.views];
       }
       article = data;
       const displayImage = (url) => {
@@ -27,7 +32,8 @@ const getArticle = (id) => {
           ${data.body}
         </p>
         `;
-    });
+    })
+    .catch((error) => console.log(error));
 };
 
 function updateAllList(id, photo, title, lastEdit, views) {
@@ -64,7 +70,7 @@ const updatePreviewSection = () => {
           snap.val()[a].imageUrl,
           snap.val()[a].title,
           snap.val()[a].lastEdit,
-          snap.val()[a].views.number
+          snap.val()[a].views.length
         )
       );
     });
@@ -83,6 +89,7 @@ function submitComment(id, form) {
   };
   comments.push(commentsValue);
   article.comments = comments;
+  article.views = views;
   database.ref('/articles/' + id).set(article, (error) => {
     if (error) {
       console.log(error);
@@ -96,7 +103,54 @@ selector('#commentFrm').onsubmit = (e) => {
   const form = selector('#commentFrm');
   submitComment(id, form);
 };
+
+/**
+ * Getting user location
+ */
+function userLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      fetch(
+        `http://api.positionstack.com/v1/reverse?access_key=86453e71ccf48e07455a05c0b48957e0&query=${pos.coords.latitude},${pos.coords.longitude}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          position = data.data[0].county;
+          updteView(id, position);
+          selector(
+            '.user-position'
+          ).innerHTML = `<i class="fas fa-street-view"></i>${position}`;
+        })
+        .catch((error) => console.log(error));
+    });
+  } else {
+    return false;
+  }
+}
+
+/**
+ * Update views of article;
+ */
+function updteView(id, position) {
+  views.push(position);
+  article.views = views;
+  database.ref('/articles/' + id).set(article, (error) => {
+    if (error) {
+      console.log(error);
+    } else {
+      return true;
+    }
+  });
+}
+
+/**
+ * Return back if back arrow is clicked on
+ */
+selector('.back-arrow').onclick = () => {
+  window.location = './';
+};
 window.onload = () => {
   getArticle(id);
   updatePreviewSection();
+  userLocation();
 };

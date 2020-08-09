@@ -8,7 +8,7 @@ const updatePreviewSection = () => {
           snap.val()[a].imageUrl,
           snap.val()[a].title,
           snap.val()[a].lastEdit,
-          snap.val()[a].views.number
+          snap.val()[a].views.length
         )
       );
     });
@@ -25,17 +25,17 @@ const updatePopularStory = () => {
     const ids = Object.keys(snapshot.val());
     if (ids.length != 0) {
       ids.forEach((article) => {
-        allViews.push(snapshot.val()[article].views.number);
+        allViews.push(snapshot.val()[article].views.length);
         allViews.sort((a, b) => b - a);
 
         viewedArticle.push(snapshot.val()[article]);
         const firstArticle = viewedArticle.filter(
-          (article) => article.views.number === allViews[0]
+          (article) => article.views.length === allViews[0]
         );
         const secondArticle = viewedArticle.filter(
-          (article) => article.views.number === allViews[1]
+          (article) => article.views.length === allViews[1]
         );
-        if (allViews.length > 3) {
+        if (allViews.length >= 3) {
           selector('#pop-story-2').innerHTML = '';
           selector('#pop-story-2').innerHTML = popularArticle(
             secondArticle[0].imageUrl,
