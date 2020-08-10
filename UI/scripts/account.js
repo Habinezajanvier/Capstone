@@ -41,13 +41,13 @@ function profileData(user) {
               <div class="edit-profile" >
                 <i class="fas fa-user-plus"></i>Edit profile
               </div>
-            </div>
+            </div><!--
             <div class="user-bio">
               <b>Bio</b>
               <p>
                 ${bio || ''}
               </p>
-            </div>
+            </div>-->
           </div>
   `;
 }
@@ -84,6 +84,7 @@ function profileEditForm(user) {
                 displayName || ''
               }' required/>
             </label>
+            <!--
             <label for="Names">
               Phone Number
               <input type="text" value='${phoneNumber}' id="edit-phones"/>
@@ -95,6 +96,7 @@ function profileEditForm(user) {
                 rows="10"
               ></textarea>
             </label>
+            -->
             <button>Save Changes</button>
           </form>
 `;
@@ -111,4 +113,24 @@ function profileEdit(user) {
       '#messages'
     );
   });
+  element('#edit-profile').addEventListener('submit', (e) => {
+    e.preventDefault();
+    editProfile(user);
+  });
+}
+
+function editProfile(user) {
+  displayName = element('#edit-name').value;
+  // phoneNumber = element('#edit-phones').value;
+  // bio = element('#edit-bio').value;
+  user
+    .updateProfile({
+      displayName,
+    })
+    .then(() => {
+      console.log('user updated successfully');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
