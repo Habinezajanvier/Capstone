@@ -3,21 +3,28 @@ const names = document.getElementById('names');
 const contactEmail = document.getElementById('email');
 const comment = document.getElementById('comment');
 const submitBtn = document.getElementById('cmt_submit');
+const error = document.getElementById('error');
 
 const verify = async (names, email, comment, form) => {
   const namesRegex = /^[a-z]{2}([a-z][\W]*)/i;
   const emailFormat = /^[a-z]([\w-\.]|\d)*\@[a-z]+\.[a-z]{2,3}$/;
 
   if (!namesRegex.test(names.value)) {
-    names.setAttribute('placeholder', 'Enter a valid names');
+    error.innerText = 'Your name is not valid';
+    names.style.borderColor = 'red';
+    email.style.borderColor = 'black';
   } else if (!emailFormat.test(email.value)) {
-    email.setAttribute('placeholder', 'Enter a valid email');
+    error.innerText = 'Your email is not valid';
+    email.style.borderColor = 'red';
+    names.style.borderColor = 'black';
   } else if (comment.value.length === 0) {
-    comment.style.color = '#88040a';
-    comment.value = "Empty message can't be sent";
+    email.style.borderColor = 'black';
+    names.style.borderColor = 'black';
+    error.innerText = "Empty message can't be submitted";
   } else {
-    names.setAttribute('placeholder', '');
-    email.setAttribute('placeholder', '');
+    error.innerHTML = '';
+    email.style.borderColor = 'black';
+    names.style.borderColor = 'black';
     await submitMessage(names, email, comment, form);
   }
 };
@@ -32,9 +39,9 @@ contactForm.onsubmit = (e) => {
  */
 const database = firebase.database();
 const postRef = database.ref('messages');
-function submitMessage(name, email, message, form) {
+async function submitMessage(name, email, message, form) {
   submitBtn.value = 'loading...';
-  postRef.push().set(
+  await postRef.push().set(
     {
       names: name.value,
       email: email.value,

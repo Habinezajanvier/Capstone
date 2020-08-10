@@ -22,7 +22,7 @@ const verify = (name, email, password, cfrmPassword, form) => {
     message.innerHTML = 'Your Password should be 4 letter long + digit number';
   } else if (password.value !== cfrmPassword.value) {
     message.style.color = '#88040a';
-    message.innerHTML = "Your passwords does't match";
+    message.innerHTML = "Your passwords don't match";
   } else {
     submitBtn.innerHTML = 'Loading...';
     signup(email.value, password.value, form);

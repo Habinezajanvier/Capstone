@@ -128,7 +128,14 @@ function editProfile(user) {
       displayName,
     })
     .then(() => {
-      console.log('user updated successfully');
+      accountSection(user);
+      swithDisplay(
+        '.account-wrapper',
+        '#adding-article',
+        '#dashboard',
+        '#articles',
+        '#messages'
+      );
     })
     .catch((error) => {
       console.log(error);
