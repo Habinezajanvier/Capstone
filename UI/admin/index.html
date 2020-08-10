@@ -26,9 +26,14 @@
         <div class="fas"><i class="far fa-envelope"></i><span>5</span></div>
 
         <div class="profile">
-          <img src="../assets/images/profile-avatar.jpg" alt="_avatar_" /><span
-            >John Doe</span
-          >
+          <div id="profile-nav"></div>
+
+          <div class="profile-display">
+            <div class="profile-preview"></div>
+            <div class="account"><i class="fas fa-user-alt"></i>Account</div>
+            <div class="settings"><i class="fas fa-cog"></i>Settings</div>
+            <div class="logout"><i class="fas fa-sign-out-alt"></i>Logout</div>
+          </div>
         </div>
       </nav>
     </header>
@@ -146,6 +151,7 @@
           </div>
           <div id="article-section"></div>
         </div>
+        <div id="user-account"></div>
         <div class="shield">
           <div class="popup"></div>
         </div>
@@ -164,5 +170,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
     <script src="../scripts/adminOutils.js"></script>
     <script src="../scripts//admin.js"></script>
+    <script src="../scripts/account.js"></script>
   </body>
 </html>

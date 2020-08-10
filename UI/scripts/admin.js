@@ -8,7 +8,7 @@ function cancel() {
 document.onclick = (e) => {
   if (e.target.closest('.fa-edit')) {
     popStatus = true;
-    editDisplay();
+    editDisplay(e);
     togglePopup(popStatus);
   } else if (e.target.closest('.fa-trash-alt')) {
     popStatus = true;
@@ -20,14 +20,24 @@ document.onclick = (e) => {
   }
 };
 
-function editDisplay() {
-  const description = element('.fa-trash-alt').parentNode.parentNode
-    .childNodes[1].innerHTML;
-  let editFormcontent = editForm('Lorem Ipsum', description);
-  let popupContent = popupText('Edit Article', editFormcontent, 'Save Changes');
+function editDisplay(e) {
+  const title =
+    e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
+  const articleId = e.target.parentNode.parentNode.parentNode.childNodes[0].id;
+  const description = e.target.parentNode.parentNode.childNodes[1].innerHTML;
+  let editFormcontent = editForm(title, description);
+  let popupContent = popupText(
+    'Edit Article',
+    editFormcontent,
+    'edit-btn',
+    'Save Changes'
+  );
   element('.popup').classList.remove('delete-overlay');
   element('.popup').classList.add('edit-overlay');
   element('.popup').innerHTML = popupContent;
+  element('.edit-btn').onclick = () => {
+    editArticle(articleId);
+  };
 }
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -38,7 +48,6 @@ firebase.auth().onAuthStateChanged((user) => {
     window.location = '../login/';
   }
 });
-
 /**
  * function to upload photo for an article to firebase
  */
@@ -82,14 +91,12 @@ element('#add-article').onsubmit = (e) => {
       title: element('#title').value,
       body: element('#article-description').value,
       imageUrl: url ? url : null,
-      views: {
-        locations: 'none',
-        number: 0,
-      },
+      views: [],
       likes: 0,
       unlikes: 0,
       shares: 0,
-      comments: 0,
+      comments: [],
+      time: new Date(),
     },
     (error) => {
       if (error) {
@@ -123,7 +130,9 @@ function appendArticle(articleId, article) {
     </div>`;
   return parentElem;
 }
-
+/**
+ * Function to display article on admin dashboard
+ */
 function displayArticle() {
   element('#article-section').innerHTML = 'waiting ...';
   postRef.once('value').then(function (snapshot) {
@@ -158,13 +167,14 @@ function deleteArticle(id) {
     });
 }
 
-function swithDisplay(show, hide1, hide2, hide3) {
+function swithDisplay(show, hide1, hide2, hide3, hide4) {
   element(show).style.display = 'flex';
 
   //Hide everithing that I don't want to display
   element(hide1).style.display = 'none';
   element(hide2).style.display = 'none';
   element(hide3).style.display = 'none';
+  element(hide4).style.display = 'none';
 }
 
 /**
@@ -219,24 +229,87 @@ function deleteMessage(id) {
       console.log(error);
     });
 }
+
+/**
+ * Function to edit any article from firebase database
+ */
+function editArticle(id) {
+  const title = element('#edit-title').value;
+  const body = element('#edit-description').value;
+  let data = {
+    title,
+    body,
+  };
+  postRef.child(id).update(data, (error) => {
+    if (error) {
+      console.log(error);
+    } else {
+      cancel();
+      displayArticle();
+    }
+  });
+}
+
 element('.new-article').addEventListener('click', () => {
-  swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
+  swithDisplay(
+    '#adding-article',
+    '#dashboard',
+    '#articles',
+    '#messages',
+    '.account-wrapper'
+  );
 });
 
 element('.dashboard-point').addEventListener('click', () => {
-  swithDisplay('#dashboard', '#adding-article', '#articles', '#messages');
+  swithDisplay(
+    '#dashboard',
+    '#adding-article',
+    '#articles',
+    '#messages',
+    '.account-wrapper'
+  );
 });
 
 element('.messages-point').addEventListener('click', () => {
-  swithDisplay('#messages', '#dashboard', '#adding-article', '#articles');
+  swithDisplay(
+    '#messages',
+    '#dashboard',
+    '#adding-article',
+    '#articles',
+    '.account-wrapper'
+  );
   displayMessages();
 });
 
 element('.articles-point').addEventListener('click', () => {
   displayArticle();
-  swithDisplay('#articles', '#messages', '#dashboard', '#adding-article');
+  swithDisplay(
+    '#articles',
+    '#messages',
+    '#dashboard',
+    '#adding-article',
+    '.account-wrapper'
+  );
 });
 
 element('.article-heads').addEventListener('click', () => {
-  swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
+  swithDisplay(
+    '#adding-article',
+    '#dashboard',
+    '#articles',
+    '#messages',
+    '.account-wrapper'
+  );
 });
+
+window.onclick = (e) => {
+  if (e.target.matches('.account-point') || e.target.matches('.account')) {
+    swithDisplay(
+      '.account-wrapper',
+      '#adding-article',
+      '#dashboard',
+      '#articles',
+      '#messages'
+    );
+  }
+};

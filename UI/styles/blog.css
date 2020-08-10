@@ -16,7 +16,7 @@ h2 {
   color: rgba(25, 132, 132, 0.71);
   font-weight: bold;
 }
-.w-100 {
+.most-liked {
   background-color: #e4ecec;
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@ h2 {
   margin: 60px auto;
 }
 .w-100 img {
-  width: 30%px;
+  width: 300px;
   height: 300px;
   margin-right: 20px;
 }
@@ -122,13 +122,13 @@ h3 {
   margin: 40px 0;
 }
 .social-media {
+  padding: 40px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 iframe {
   outline: none;
   border: none;
-  border-radius: 20px;
 }
 h4,
 h5 {
@@ -138,8 +138,9 @@ h4 {
   margin-bottom: 40px;
 }
 .twitter {
-  height: 400px;
-  width: 550px;
+  border: solid 2px rgba(25, 132, 132, 0.71);
+  height: 300px;
+  width: 470px;
   overflow-y: scroll;
 }
 footer {
@@ -237,8 +238,8 @@ input:focus {
     align-items: center;
   }
   .twitter {
-    height: 300px;
-    width: 500px;
+    height: 200px;
+    width: 90%;
     overflow-y: scroll;
     margin: 50px 0 10px;
   }

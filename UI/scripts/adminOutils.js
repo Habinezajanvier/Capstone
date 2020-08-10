@@ -35,6 +35,7 @@ const editForm = (title, description) => {
                 rows="12"
               >${description}</textarea>
             </label>
+            <!--
             <label for="image">
               <p>Add Image</p>
               <input
@@ -43,8 +44,7 @@ const editForm = (title, description) => {
                 id="article-image"
                 accept="image/*"
               /> </label
-            ><br />
-            <input type="submit" value="SAVE" id="submit-article" />
+            ><br />-->
           </form>
         `;
 };
