@@ -83,12 +83,14 @@ nav {
   display: flex;
   justify-content: space-between;
   color: white;
+  align-items: center;
 }
 nav * {
   cursor: pointer;
 }
 nav .fas {
   position: relative;
+  height: 75%;
 }
 .fas span {
   position: absolute;
@@ -110,10 +112,15 @@ nav img {
   border-radius: 50%;
   margin-right: 5px;
 }
+nav,
+.profile {
+  height: 100%;
+}
 .profile {
   display: flex;
   margin-right: 20px;
   align-items: center;
+  position: relative;
 }
 .main-wrapper {
   margin: 20px 15px 20px 200px;
@@ -309,6 +316,45 @@ nav img {
 .fa-trash-alt,
 .fa-trash {
   color: rgba(172, 67, 67, 0.71);
+}
+.profile-display {
+  position: absolute;
+  background-color: var(--seconday);
+  color: black;
+  padding: 20px 0;
+  width: 300px;
+  display: none;
+  top: 57px;
+  right: 0;
+}
+.profile-display i {
+  font-size: 16pt;
+  color: rgb(36, 48, 47);
+  margin: 0 25px;
+}
+.account,
+.settings,
+.logout {
+  padding: 20px;
+  transition: 0.3s;
+}
+.account:hover,
+.settings:hover,
+.logout:hover {
+  background-color: var(--primary);
+  color: white;
+}
+.profile-preview {
+  display: flex;
+}
+.profile-preview img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+.profile:hover .profile-display {
+  display: block;
 }
 .copyright {
   height: 60px;

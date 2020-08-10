@@ -44,7 +44,6 @@ const editForm = (title, description) => {
                 accept="image/*"
               /> </label
             ><br />
-            <input type="submit" value="SAVE" id="submit-article" />
           </form>
         `;
 };

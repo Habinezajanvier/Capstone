@@ -11,6 +11,14 @@
   width: 678px;
   height: 278px;
 }
+.edit-overlay {
+  width: 700px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+.edit-overlay p {
+  margin: none;
+}
 .decision {
   width: 100%;
   display: flex;
@@ -67,4 +75,12 @@ h5 {
   color: white;
   font-weight: bold;
   cursor: pointer;
+}
+.edit-loading {
+  background-color: rgba(25, 132, 132, 0.82);
+  font-weight: bold;
+  text-align: center;
+  width: 200px;
+  padding: 20px;
+  border-radius: 20px;
 }

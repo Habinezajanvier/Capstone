@@ -8,7 +8,7 @@ function cancel() {
 document.onclick = (e) => {
   if (e.target.closest('.fa-edit')) {
     popStatus = true;
-    editDisplay();
+    editDisplay(e);
     togglePopup(popStatus);
   } else if (e.target.closest('.fa-trash-alt')) {
     popStatus = true;
@@ -20,14 +20,24 @@ document.onclick = (e) => {
   }
 };
 
-function editDisplay() {
-  const description = element('.fa-trash-alt').parentNode.parentNode
-    .childNodes[1].innerHTML;
-  let editFormcontent = editForm('Lorem Ipsum', description);
-  let popupContent = popupText('Edit Article', editFormcontent, 'Save Changes');
+function editDisplay(e) {
+  const title =
+    e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
+  const articleId = e.target.parentNode.parentNode.parentNode.childNodes[0].id;
+  const description = e.target.parentNode.parentNode.childNodes[1].innerHTML;
+  let editFormcontent = editForm(title, description);
+  let popupContent = popupText(
+    'Edit Article',
+    editFormcontent,
+    'edit-btn',
+    'Save Changes'
+  );
   element('.popup').classList.remove('delete-overlay');
   element('.popup').classList.add('edit-overlay');
   element('.popup').innerHTML = popupContent;
+  element('.edit-btn').onclick = () => {
+    editArticle(articleId);
+  };
 }
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -82,14 +92,12 @@ element('#add-article').onsubmit = (e) => {
       title: element('#title').value,
       body: element('#article-description').value,
       imageUrl: url ? url : null,
-      views: {
-        locations: 'none',
-        number: 0,
-      },
+      views: [],
       likes: 0,
       unlikes: 0,
       shares: 0,
-      comments: 0,
+      comments: [],
+      time: new Date(),
     },
     (error) => {
       if (error) {
@@ -123,7 +131,9 @@ function appendArticle(articleId, article) {
     </div>`;
   return parentElem;
 }
-
+/**
+ * Function to display article on admin dashboard
+ */
 function displayArticle() {
   element('#article-section').innerHTML = 'waiting ...';
   postRef.once('value').then(function (snapshot) {
@@ -219,6 +229,27 @@ function deleteMessage(id) {
       console.log(error);
     });
 }
+
+/**
+ * Function to edit any article from firebase database
+ */
+function editArticle(id) {
+  const title = element('#edit-title').value;
+  const body = element('#edit-description').value;
+  let data = {
+    title,
+    body,
+  };
+  postRef.child(id).update(data, (error) => {
+    if (error) {
+      console.log(error);
+    } else {
+      cancel();
+      displayArticle();
+    }
+  });
+}
+
 element('.new-article').addEventListener('click', () => {
   swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
 });

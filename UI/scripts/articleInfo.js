@@ -25,7 +25,12 @@ function editDisplay() {
     element('h2').innerHTML,
     element('article').innerHTML
   );
-  let popupContent = popupText('Edit Article', editFormcontent, 'Save Changes');
+  let popupContent = popupText(
+    'Edit Article',
+    editFormcontent,
+    'edit-btn',
+    'Save Changes'
+  );
   element('.popup').classList.remove('delete-overlay');
   element('.popup').classList.add('edit-overlay');
   element('.popup').innerHTML = popupContent;
