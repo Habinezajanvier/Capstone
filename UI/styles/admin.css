@@ -85,6 +85,11 @@ nav {
   color: white;
   align-items: center;
 }
+#profile-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 nav * {
   cursor: pointer;
 }
@@ -111,6 +116,8 @@ nav img {
   border: 1px solid #000000;
   border-radius: 50%;
   margin-right: 5px;
+  width: 40px;
+  height: 80%;
 }
 nav,
 .profile {
@@ -355,6 +362,92 @@ nav,
 }
 .profile:hover .profile-display {
   display: block;
+}
+.account-wrapper {
+  display: none;
+  flex-direction: column;
+  border: solid black 1px;
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: var(--seconday);
+}
+/* .account-wrapper{
+} */
+.profile-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.profile-reveiw {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+}
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+#profile-photo {
+  width: 90px;
+}
+.edit-profile {
+  background-color: var(--primary);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.edit-profile i {
+  margin-right: 15px;
+}
+#edit-profile {
+  width: 100%;
+  border: black solid 1px;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 40px;
+  background-color: var(--seconday);
+  position: relative;
+}
+#edit-profile input,
+#edit-profile textarea {
+  padding: 10px 15px;
+  width: 100%;
+  background: rgba(226, 235, 235, 0.92);
+  border: 1px solid #000000;
+  border-radius: 7px;
+  margin: 5px 0 20px;
+}
+#edit-profile input:focus,
+#edit-profile textarea:focus {
+  border: 1px solid var(--primary);
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: var(--primary);
+  font-size: 30pt;
+  cursor: pointer;
+}
+#edit-profile button {
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+  transition: 0.3s;
+}
+#edit-profile button:hover {
+  border: var(--primary) solid 1px;
+  background-color: var(--seconday);
+  color: black;
 }
 .copyright {
   height: 60px;

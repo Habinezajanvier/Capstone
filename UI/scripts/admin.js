@@ -48,7 +48,6 @@ firebase.auth().onAuthStateChanged((user) => {
     window.location = '../login/';
   }
 });
-
 /**
  * function to upload photo for an article to firebase
  */
@@ -168,13 +167,14 @@ function deleteArticle(id) {
     });
 }
 
-function swithDisplay(show, hide1, hide2, hide3) {
+function swithDisplay(show, hide1, hide2, hide3, hide4) {
   element(show).style.display = 'flex';
 
   //Hide everithing that I don't want to display
   element(hide1).style.display = 'none';
   element(hide2).style.display = 'none';
   element(hide3).style.display = 'none';
+  element(hide4).style.display = 'none';
 }
 
 /**
@@ -251,23 +251,65 @@ function editArticle(id) {
 }
 
 element('.new-article').addEventListener('click', () => {
-  swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
+  swithDisplay(
+    '#adding-article',
+    '#dashboard',
+    '#articles',
+    '#messages',
+    '.account-wrapper'
+  );
 });
 
 element('.dashboard-point').addEventListener('click', () => {
-  swithDisplay('#dashboard', '#adding-article', '#articles', '#messages');
+  swithDisplay(
+    '#dashboard',
+    '#adding-article',
+    '#articles',
+    '#messages',
+    '.account-wrapper'
+  );
 });
 
 element('.messages-point').addEventListener('click', () => {
-  swithDisplay('#messages', '#dashboard', '#adding-article', '#articles');
+  swithDisplay(
+    '#messages',
+    '#dashboard',
+    '#adding-article',
+    '#articles',
+    '.account-wrapper'
+  );
   displayMessages();
 });
 
 element('.articles-point').addEventListener('click', () => {
   displayArticle();
-  swithDisplay('#articles', '#messages', '#dashboard', '#adding-article');
+  swithDisplay(
+    '#articles',
+    '#messages',
+    '#dashboard',
+    '#adding-article',
+    '.account-wrapper'
+  );
 });
 
 element('.article-heads').addEventListener('click', () => {
-  swithDisplay('#adding-article', '#dashboard', '#articles', '#messages');
+  swithDisplay(
+    '#adding-article',
+    '#dashboard',
+    '#articles',
+    '#messages',
+    '.account-wrapper'
+  );
 });
+
+window.onclick = (e) => {
+  if (e.target.matches('.account-point') || e.target.matches('.account')) {
+    swithDisplay(
+      '.account-wrapper',
+      '#adding-article',
+      '#dashboard',
+      '#articles',
+      '#messages'
+    );
+  }
+};
