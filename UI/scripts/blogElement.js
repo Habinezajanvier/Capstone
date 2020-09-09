@@ -1,5 +1,5 @@
 const database = firebase.database();
-const postRef = database.ref('articles');
+const postRef = database.ref("articles");
 
 const selector = (identifier) => {
   return document.querySelector(identifier);
@@ -11,7 +11,7 @@ const displayImage = (url) => {
     src="${url}"
     alt="article_avatar"
   />`
-    : '';
+    : "";
 };
 
 function mostLikedArticle(photo, obj, id) {
@@ -36,7 +36,7 @@ function mostLikedArticle(photo, obj, id) {
                 </div>
                 <div class="comments">
                   <i class="far fa-comments"></i>
-                  ${obj.comments.length}
+                  ${obj.comments}
                 </div>
                 <div class="share">
                   <i class="fas fa-share-alt"></i>
@@ -49,9 +49,9 @@ function mostLikedArticle(photo, obj, id) {
 }
 
 function preveiwArticle(id, photo, title, time, views) {
-  const preveiwSection = document.createElement('div');
-  preveiwSection.classList.add('single-article-preview');
-  preveiwSection.setAttribute('id', `${id}`);
+  const preveiwSection = document.createElement("div");
+  preveiwSection.classList.add("single-article-preview");
+  preveiwSection.setAttribute("id", `${id}`);
   preveiwSection.innerHTML = `
     ${displayImage(photo)}
     <div class="article-preveiw">
@@ -59,7 +59,7 @@ function preveiwArticle(id, photo, title, time, views) {
       <div class="article-infos">
         <div class="last-edit">
           <i class="fas fa-edit"></i>
-          <p>${time || '12-jul-202'}</p>
+          <p>${time || "12-jul-202"}</p>
         </div>
         <div class="views">
           <i class="far fa-eye"></i>
@@ -90,7 +90,7 @@ const popularArticle = (photo, obj) => {
                 </div>
                 <div class="comments">
                 <i class="far fa-comments"></i>
-                ${obj.comments.length}
+                ${obj.comments}
                 </div>
                 <div class="share">
                 <i class="fas fa-share-alt"></i>
@@ -101,34 +101,34 @@ const popularArticle = (photo, obj) => {
 };
 
 function singleArticleRedirection(e) {
-  let ids = '';
+  let ids = "";
   switch (e.target.className) {
-    case 'fas fa-edit':
+    case "fas fa-edit":
       ids = e.target.parentNode.parentNode.parentNode.parentNode.id;
       window.location.href = `./article.html?id=${ids}`;
       break;
-    case 'fas fa-share-alt':
+    case "fas fa-share-alt":
       ids = e.target.parentNode.parentNode.parentNode.parentNode.id;
       window.location.href = `./article.html?id=${ids}`;
       break;
-    case 'last-edit':
+    case "last-edit":
       ids = e.target.parentNode.parentNode.parentNode.id;
       window.location.href = `./article.html?id=${ids}`;
       break;
-    case 'article-infos':
+    case "article-infos":
       ids = e.target.parentNode.parentNode.id;
       window.location.href = `./article.html?id=${ids}`;
       break;
-    case 'title':
+    case "title":
       ids = e.target.parentNode.parentNode.id;
       window.location.href = `./article.html?id=${ids}`;
       break;
-    case 'image':
+    case "image":
       ids = e.target.parentNode.id;
       window.location.href = `./article.html?id=${ids}`;
       break;
     default:
-      if (e.target.id != '') {
+      if (e.target.id != "") {
         ids = e.target.id;
         window.location.href = `./article.html?id=${ids}`;
       }

@@ -86,7 +86,7 @@ element("#add-article").onsubmit = (e) => {
   const article = {
     title: element("#title").value,
     body: element("#article-description").value,
-    // imageUrl: url ? url : null,
+    photoUrl: url ? url : null,
   };
   element("#submit-article").value = "loading...";
   fetch("https://my-brand-api.herokuapp.com/articles", {
